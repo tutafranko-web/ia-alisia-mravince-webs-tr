@@ -1,0 +1,106 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair-display);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-villa-gold: var(--villa-gold);
+  --color-villa-gold-light: var(--villa-gold-light);
+  --color-villa-gold-dark: var(--villa-gold-dark);
+  --color-villa-navy: var(--villa-navy);
+  --color-villa-earth: var(--villa-earth);
+  --color-villa-stone: var(--villa-stone);
+  --color-villa-stone-light: var(--villa-stone-light);
+  --color-villa-sea: var(--villa-sea);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(0.97 0.012 85);
+  --foreground: oklch(0.18 0.020 55);
+  --card: oklch(0.95 0.014 82);
+  --card-foreground: oklch(0.18 0.020 55);
+  --popover: oklch(0.97 0.012 85);
+  --popover-foreground: oklch(0.18 0.020 55);
+  --primary: oklch(0.72 0.130 75);
+  --primary-foreground: oklch(0.18 0.020 55);
+  --secondary: oklch(0.92 0.016 80);
+  --secondary-foreground: oklch(0.18 0.020 55);
+  --muted: oklch(0.92 0.016 80);
+  --muted-foreground: oklch(0.50 0.035 60);
+  --accent: oklch(0.86 0.022 80);
+  --accent-foreground: oklch(0.18 0.020 55);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.88 0.020 80);
+  --input: oklch(0.90 0.018 80);
+  --ring: oklch(0.72 0.130 75);
+
+  --villa-gold: oklch(0.72 0.130 75);
+  --villa-gold-light: oklch(0.82 0.110 80);
+  --villa-gold-dark: oklch(0.58 0.140 70);
+  --villa-navy: oklch(0.22 0.060 255);
+  --villa-earth: oklch(0.50 0.035 60);
+  --villa-stone: oklch(0.97 0.012 85);
+  --villa-stone-light: oklch(0.93 0.014 82);
+  --villa-sea: oklch(0.65 0.090 230);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.82 0.110 80) 0%,
+      oklch(0.72 0.130 75) 50%,
+      oklch(0.58 0.140 70) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  .container-villa {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
