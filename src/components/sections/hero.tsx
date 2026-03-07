@@ -1,10 +1,10 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { ChevronDown, Star } from "lucide-react";
-import { VILLA, PHOTOS } from "@/lib/constants";
+import { VILLA, HERO_SLIDES } from "@/lib/constants";
 
 export function HeroSection() {
   const sectionRef = useRef(null);
@@ -14,25 +14,50 @@ export function HeroSection() {
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const advance = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % HERO_SLIDES.length);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(advance, 5000);
+    return () => clearInterval(timer);
+  }, [advance]);
+
   return (
     <section
       ref={sectionRef}
       id="hero"
       className="relative h-screen min-h-[600px] overflow-hidden"
     >
+      {/* Slideshow background */}
       <motion.div className="absolute inset-0" style={{ y }}>
-        <Image
-          src={PHOTOS[0].src}
-          alt={PHOTOS[0].alt}
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
+        <AnimatePresence mode="sync">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={HERO_SLIDES[currentIndex].src}
+              alt={HERO_SLIDES[currentIndex].alt}
+              fill
+              className="object-cover animate-ken-burns"
+              priority={currentIndex === 0}
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-villa-navy/30 via-villa-navy/20 to-villa-navy/70" />
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-villa-navy/40 via-villa-navy/20 to-villa-navy/70" />
 
+      {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -77,15 +102,35 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          href={VILLA.airbnbUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#reserve"
           className="mt-8 inline-flex items-center justify-center rounded-full bg-villa-gold px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-villa-gold-dark hover:shadow-lg hover:shadow-villa-gold/30 hover:scale-105"
         >
-          Book Your Stay
+          Reserve Your Stay
         </motion.a>
       </div>
 
+      {/* Slide indicators */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2"
+      >
+        {HERO_SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentIndex(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`h-1 rounded-full transition-all duration-500 ${
+              i === currentIndex
+                ? "w-8 bg-villa-gold"
+                : "w-3 bg-white/40 hover:bg-white/60"
+            }`}
+          />
+        ))}
+      </motion.div>
+
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

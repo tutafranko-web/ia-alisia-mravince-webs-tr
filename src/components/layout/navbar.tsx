@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useNavbarScroll } from "@/hooks/use-navbar-scroll";
-import { VILLA, NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -46,12 +46,10 @@ export function Navbar() {
             </a>
           ))}
           <a
-            href={VILLA.airbnbUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#reserve"
             className="inline-flex items-center justify-center rounded-full bg-villa-gold px-5 py-2 text-sm font-medium text-white transition-all hover:bg-villa-gold-dark hover:shadow-lg"
           >
-            Book on Airbnb
+            Reserve Now
           </a>
         </div>
 
@@ -88,12 +86,11 @@ export function Navbar() {
                 </a>
               ))}
               <a
-                href={VILLA.airbnbUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#reserve"
+                onClick={() => setIsMobileOpen(false)}
                 className="inline-flex items-center justify-center rounded-full bg-villa-gold px-5 py-3 text-sm font-medium text-white mt-2"
               >
-                Book on Airbnb
+                Reserve Now
               </a>
             </div>
           </motion.div>

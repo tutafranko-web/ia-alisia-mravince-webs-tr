@@ -9,8 +9,9 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
-import { VILLA, EXPERIENCE_FEATURES } from "@/lib/constants";
+import { EXPERIENCE_FEATURES } from "@/lib/constants";
 import { SectionHeader } from "@/components/ui/section-header";
+import { GradientWaves } from "@/components/ui/gradient-waves";
 
 const iconMap: Record<string, LucideIcon> = {
   Mountain,
@@ -23,8 +24,9 @@ export function ExperienceSection() {
   const { ref, isInView } = useScrollAnimation();
 
   return (
-    <section className="section-padding bg-villa-stone-light">
-      <div ref={ref} className="container-villa">
+    <section className="relative section-padding bg-villa-stone-light overflow-hidden">
+      <GradientWaves />
+      <div ref={ref} className="container-villa relative z-10">
         <SectionHeader
           overline="Experience"
           title="The Villa Alissa Experience"
@@ -73,12 +75,10 @@ export function ExperienceSection() {
             Book Your Stay at Villa Alissa
           </h3>
           <a
-            href={VILLA.airbnbUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#reserve"
             className="inline-flex items-center justify-center rounded-full bg-villa-gold px-8 py-3.5 text-base font-medium text-white transition-all hover:bg-villa-gold-light hover:shadow-lg hover:shadow-villa-gold/30"
           >
-            Book Villa Alissa
+            Reserve Villa Alissa
           </a>
         </motion.div>
       </div>

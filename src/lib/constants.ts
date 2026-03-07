@@ -134,4 +134,14 @@ export const NAV_LINKS = [
   { label: "Amenities", href: "#amenities" },
   { label: "Location", href: "#location" },
   { label: "Reviews", href: "#reviews" },
+  { label: "Reserve", href: "#reserve" },
 ] as const;
+
+export const HERO_SLIDES = [
+  PHOTOS[0], // Exterior with stone walls and sea view
+  PHOTOS[1], // Spacious terrace overlooking the Adriatic
+  PHOTOS[2], // Hand-crafted wooden interior
+  PHOTOS[4], // Whirlpool hot tub with panoramic views
+  PHOTOS[6], // Bedroom with wooden furniture
+  PHOTOS[3], // Living room with traditional stone details
+];

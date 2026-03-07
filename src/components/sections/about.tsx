@@ -5,6 +5,7 @@ import { Users, BedDouble, Bath, Star } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { VILLA } from "@/lib/constants";
 import { Card, CardContent } from "@/components/ui/card";
+import { GradientWaves } from "@/components/ui/gradient-waves";
 
 const stats = [
   { icon: Users, value: VILLA.capacity, label: "Guests" },
@@ -17,8 +18,9 @@ export function AboutSection() {
   const { ref, isInView } = useScrollAnimation();
 
   return (
-    <section id="about" className="section-padding bg-background">
-      <div ref={ref} className="container-villa">
+    <section id="about" className="relative section-padding bg-background overflow-hidden">
+      <GradientWaves />
+      <div ref={ref} className="container-villa relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -38,12 +40,10 @@ export function AboutSection() {
               {VILLA.plotSize} surrounded by ancient stone walls &middot; {VILLA.distanceSplit} from Split
             </p>
             <a
-              href={VILLA.airbnbUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#reserve"
               className="mt-8 inline-flex items-center justify-center rounded-full border-2 border-villa-gold px-6 py-2.5 text-sm font-medium text-villa-gold-dark transition-all hover:bg-villa-gold hover:text-white"
             >
-              View on Airbnb
+              Reserve Your Stay
             </a>
           </motion.div>
 

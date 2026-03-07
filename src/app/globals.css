@@ -85,7 +85,33 @@
   }
 }
 
+@keyframes gradient-wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
 @layer utilities {
+  .animate-gradient-wave {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.130 75 / 0.06) 0%,
+      oklch(0.22 0.060 255 / 0.03) 25%,
+      oklch(0.82 0.110 80 / 0.05) 50%,
+      oklch(0.22 0.060 255 / 0.02) 75%,
+      oklch(0.72 0.130 75 / 0.06) 100%
+    );
+    background-size: 200% 200%;
+    animation: gradient-wave 15s ease infinite;
+  }
+  .animate-ken-burns {
+    animation: ken-burns 5s ease-out forwards;
+  }
   .text-gold-gradient {
     background: linear-gradient(
       135deg,

@@ -43,12 +43,10 @@ export function Footer() {
             <ul className="space-y-2.5">
               <li>
                 <a
-                  href={VILLA.airbnbUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#reserve"
                   className="text-sm hover:text-villa-gold transition-colors"
                 >
-                  Book on Airbnb
+                  Reserve Now
                 </a>
               </li>
               <li>

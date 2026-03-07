@@ -6,7 +6,7 @@ import { AmenitiesSection } from "@/components/sections/amenities";
 import { ExperienceSection } from "@/components/sections/experience";
 import { LocationSection } from "@/components/sections/location";
 import { ReviewsSection } from "@/components/sections/reviews";
-import { BookingSection } from "@/components/sections/booking";
+import { ReservationSection } from "@/components/sections/reservation";
 import { Footer } from "@/components/sections/footer";
 
 export default function Home() {
@@ -20,7 +20,7 @@ export default function Home() {
       <ExperienceSection />
       <LocationSection />
       <ReviewsSection />
-      <BookingSection />
+      <ReservationSection />
       <Footer />
     </main>
   );
