@@ -9,14 +9,16 @@ import { PHOTOS } from "@/lib/constants";
 import { SectionHeader } from "@/components/ui/section-header";
 
 const gridSpans = [
-  "col-span-2 row-span-2",
-  "",
-  "",
-  "",
-  "",
-  "col-span-2",
-  "",
-  "",
+  // Group 1 (0–7): main exterior + outdoor
+  "col-span-2 row-span-2", "", "", "", "", "col-span-2", "", "",
+  // Group 2 (8–15): more outdoor
+  "", "", "col-span-2", "", "", "", "", "",
+  // Group 3 (16–23): view + living room
+  "col-span-2 row-span-2", "", "", "", "", "col-span-2", "", "",
+  // Group 4 (24–31): bedrooms
+  "", "", "col-span-2", "", "", "", "", "",
+  // Group 5 (32–40): bathrooms + kitchen + associated
+  "col-span-2 row-span-2", "", "", "", "", "col-span-2", "", "", "",
 ];
 
 export function GallerySection() {
