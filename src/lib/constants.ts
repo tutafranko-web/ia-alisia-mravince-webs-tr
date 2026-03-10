@@ -154,10 +154,9 @@ export const NAV_LINKS = [
 ] as const;
 
 export const HERO_SLIDES = [
-  PHOTOS[0],  // Villa exterior main view
-  PHOTOS[2],  // Outdoor terrace with sea view
-  PHOTOS[16], // Panoramic Adriatic sea view
-  PHOTOS[1],  // Villa exterior second angle
-  PHOTOS[3],  // Garden and stone walls
-  PHOTOS[4],  // Outdoor living area
+  PHOTOS[3],  // outdoor_02 - nighttime jacuzzi with champagne
+  PHOTOS[2],  // outdoor_01 - stone terrace with loungers and hot tub
+  PHOTOS[4],  // outdoor_03 - jacuzzi close-up with garden view
+  PHOTOS[16], // view_02    - pergola with fountain, geraniums and sea/mountain panorama
+  PHOTOS[17], // living_01  - living room with wooden beams and fireplace
 ];
