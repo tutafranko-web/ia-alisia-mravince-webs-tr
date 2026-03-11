@@ -22,7 +22,7 @@ const gridSpans = [
 ];
 
 export function GallerySection() {
-  const { ref, isInView } = useScrollAnimation();
+  const { ref, isInView } = useScrollAnimation({ amount: 0 });
   const { activeIndex, open, close, prev, next, isOpen } = useLightbox(
     PHOTOS.length
   );
