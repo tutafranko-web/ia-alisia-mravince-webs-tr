@@ -36,12 +36,8 @@ export function GallerySection() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 auto-rows-[200px] md:auto-rows-[220px]">
           {PHOTOS.map((photo, i) => (
-            <motion.button
+            <button
               key={photo.src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0 }}
-              transition={{ duration: 0.4, delay: Math.min(i * 0.04, 0.3) }}
               onClick={() => open(i)}
               className={`relative overflow-hidden rounded-lg cursor-pointer group ${gridSpans[i]}`}
               aria-label={`View ${photo.alt}`}
@@ -58,7 +54,7 @@ export function GallerySection() {
                 }
               />
               <div className="absolute inset-0 bg-villa-navy/0 group-hover:bg-villa-navy/15 transition-colors duration-300" />
-            </motion.button>
+            </button>
           ))}
         </div>
       </div>
