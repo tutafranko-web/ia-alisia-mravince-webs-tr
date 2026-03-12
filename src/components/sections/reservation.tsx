@@ -24,7 +24,7 @@ const initialForm: FormData = {
   phone: "",
   checkIn: "",
   checkOut: "",
-  guests: "2",
+  guests: "6",
   message: "",
 };
 
@@ -235,6 +235,8 @@ export function ReservationSection() {
                     <option value="2" className="bg-villa-navy">2 Guests</option>
                     <option value="3" className="bg-villa-navy">3 Guests</option>
                     <option value="4" className="bg-villa-navy">4 Guests</option>
+                    <option value="5" className="bg-villa-navy">5 Guests</option>
+                    <option value="6" className="bg-villa-navy">6 Guests</option>
                   </select>
                 </div>
               </div>

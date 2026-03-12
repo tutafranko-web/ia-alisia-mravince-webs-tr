@@ -1,5 +1,5 @@
 export const VILLA = {
-  name: "Villa Alissa",
+  name: "Vila Alissa - Mravince",
   subtitle: "Split-Mravince",
   tagline: "Stunning Sea View",
   description:
